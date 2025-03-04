@@ -6,8 +6,8 @@ $base_path = $_SERVER['DOCUMENT_ROOT'];
 $base_url = "/metaal-handel/"; // Aangepast voor submap
 $canonical_url = "https://metaal-handel.nl/aanmelden.php";
 
-$page_title = "Het platform voor het ophalen van oud ijzer en metalen";
-include('header.php');
+// Header includen
+include($base_path . '/metaal-handel/header.php');
 ?>
 
 <!DOCTYPE html>
@@ -1551,8 +1551,14 @@ include('header.php');
       </div>
     </div>
   </section>
+  <footer>
+  <?php
+  // Footer includen
+  include($base_path . '/metaal-handel/footer.php');
+  ?>
+  </footer>
 </main>
-<?php include('footer.php'); ?>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
