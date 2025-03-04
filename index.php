@@ -1,4 +1,3 @@
-cat > public_html/index.php << 'EOF'
 <?php
 // Pad naar private directory (één niveau omhoog vanaf publik_html)
 define('PRIVATE_PATH', dirname(__DIR__) . '/private');
