@@ -1,8 +1,24 @@
+cat > public_html/index.php << 'EOF'
 <?php
+// Pad naar private directory (één niveau omhoog vanaf publik_html)
+define('PRIVATE_PATH', dirname(__DIR__) . '/private');
+define('CONFIG_PATH', PRIVATE_PATH . '/config');
+define('INCLUDES_PATH', PRIVATE_PATH . '/includes');
+define('CLASSES_PATH', PRIVATE_PATH . '/classes');
+define('TEMPLATES_PATH', PRIVATE_PATH . '/templates');
+define('LANGUAGES_PATH', PRIVATE_PATH . '/languages');
+
+// Laad configuratie
+require_once CONFIG_PATH . '/db_config.php';
+
+// Laad algemene functies
+require_once INCLUDES_PATH . '/functions.php';
 $page_title = "Het platform voor het ophalen van oud ijzer en metalen";
 include('header.php');
 ?>
-
+<!DOCTYPE html>
+<html>
+<head>
 <section class="hero">
   <div class="container">
     <div class="hero-content">
@@ -281,3 +297,7 @@ include('header.php');
 </section>
 
 <?php include('footer.php'); ?>
+<script src="/assets/js/script.js"></script>
+</body>
+</html>
+EOF
