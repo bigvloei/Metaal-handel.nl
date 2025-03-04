@@ -1,0 +1,21 @@
+# Voorkom directory listing
+Options -Indexes
+
+# Bescherm .htaccess bestand
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>
+
+# Bescherm uploads (voorkom uitvoeren van PHP in uploads)
+<Directory "uploads">
+php_flag engine off
+Options -ExecCGI
+</Directory>
+
+# Beveilig tegen diverse aanvallen
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options nosniff
+    Header set X-Frame-Options SAMEORIGIN
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

@@ -1,5 +1,9 @@
 cat > public_html/index.php << 'EOF'
 <?php
+// Plaats dit bovenaan je index.php (tijdelijk!)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Pad naar private directory (één niveau omhoog vanaf publik_html)
 define('PRIVATE_PATH', dirname(__DIR__) . '/private');
 define('CONFIG_PATH', PRIVATE_PATH . '/config');
@@ -9,8 +13,7 @@ define('TEMPLATES_PATH', PRIVATE_PATH . '/templates');
 define('LANGUAGES_PATH', PRIVATE_PATH . '/languages');
 
 // Laad configuratie
-require_once CONFIG_PATH . '/db_config.php';
-
+require_once(__DIR__ . '/../private_html/config/db_config.php');
 // Laad algemene functies
 require_once INCLUDES_PATH . '/functions.php';
 $page_title = "Het platform voor het ophalen van oud ijzer en metalen";
