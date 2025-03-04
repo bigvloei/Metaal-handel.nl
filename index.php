@@ -12,10 +12,13 @@ define('CLASSES_PATH', PRIVATE_PATH . '/classes');
 define('TEMPLATES_PATH', PRIVATE_PATH . '/templates');
 define('LANGUAGES_PATH', PRIVATE_PATH . '/languages');
 
-// Laad configuratie
+// Database configuratie inladen
 require_once(__DIR__ . '/../private_html/config/db_config.php');
-// Laad algemene functies
-require_once INCLUDES_PATH . '/functions.php';
+
+// Functies inladen
+require_once(__DIR__ . '/../private_html/includes/functions.php');
+
+// Rest van je code...
 $page_title = "Het platform voor het ophalen van oud ijzer en metalen";
 include('header.php');
 ?>
