@@ -3,11 +3,11 @@
 $page_title = "Word Metaalhandelaar | Officiële Registratie | Metaal-handel.nl";
 $page_description = "Registreer uw bedrijf als officiële metaalhandelaar bij Metaal-handel.nl. Krijg toegang tot duizenden opdrachten per maand en groei uw omzet. Direct aanmelden.";
 $base_path = $_SERVER['DOCUMENT_ROOT']; 
-$base_url = "/metaal-handel/"; // Aangepast voor submap
+$base_url = "/"; // Aangepast voor submap
 $canonical_url = "https://metaal-handel.nl/aanmelden.php";
 
 // Header includen
-include($base_path . '/metaal-handel/header.php');
+include($base_path . '/header.php');
 ?>
 
 <!DOCTYPE html>
@@ -1554,7 +1554,7 @@ include($base_path . '/metaal-handel/header.php');
   <footer>
   <?php
   // Footer includen
-  include($base_path . '/metaal-handel/footer.php');
+  include($base_path . '/footer.php');
   ?>
   </footer>
 </main>
