@@ -1,0 +1,19 @@
+# Gevoelige configuratiebestanden
+config/database.php
+config/secrets.php
+config/credentials.php
+includes/db_connect.php
+.env
+.htpasswd
+config.php
+
+# Logbestanden en tijdelijke bestanden
+logs/*.log
+logs/*.txt
+tmp/*
+temp/*
+cache/*
+
+# Uploads directory (kan grote bestanden bevatten)
+uploads/*
+!uploads/.htaccess
