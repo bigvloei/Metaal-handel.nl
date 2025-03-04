@@ -1,5 +1,9 @@
 cat > public_html/index.php << 'EOF'
 <?php
+// Plaats dit bovenaan je index.php (tijdelijk!)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Pad naar private directory (één niveau omhoog vanaf publik_html)
 define('PRIVATE_PATH', dirname(__DIR__) . '/private');
 define('CONFIG_PATH', PRIVATE_PATH . '/config');
