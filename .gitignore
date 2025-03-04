@@ -1,25 +1,23 @@
-# CakePHP 3
+# Gevoelige configuratiebestanden
+**/config/database.php
+**/config/secrets.php
+**/config/credentials.php
+**/includes/db_connect.php
 
-/vendor/*
-/config/app.php
+# Logbestanden
+**/logs/*.log
+**/logs/*.txt
 
-/tmp/cache/models/*
-!/tmp/cache/models/empty
-/tmp/cache/persistent/*
-!/tmp/cache/persistent/empty
-/tmp/cache/views/*
-!/tmp/cache/views/empty
-/tmp/sessions/*
-!/tmp/sessions/empty
-/tmp/tests/*
-!/tmp/tests/empty
+# Tijdelijke bestanden
+**/tmp/*
+**/temp/*
+**/cache/*
 
-/logs/*
-!/logs/empty
+# Uploads directory (kan grote bestanden bevatten)
+**/uploads/*
+!**/uploads/.htaccess
 
-# CakePHP 2
-
-/app/tmp/*
-/app/Config/core.php
-/app/Config/database.php
-/vendors/*
+# Overige gevoelige bestanden
+**/.env
+**/.htpasswd
+**/config.php
