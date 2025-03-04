@@ -2,10 +2,10 @@
 // Basisinstellingen
 $page_title = "Veelgestelde vragen | Metaal-handel.nl";
 $base_path = $_SERVER['DOCUMENT_ROOT']; 
-$base_url = "/metaal-handel/"; // Aangepast voor submap
+$base_url = "/"; // Aangepast voor submap
 
 // Header includen
-include($base_path . '/metaal-handel/header.php');
+include($base_path . '/header.php');
 ?>
 
 <main class="main-content">
@@ -733,5 +733,5 @@ include($base_path . '/metaal-handel/header.php');
 
 <?php
 // Footer includen
-include($base_path . '/metaal-handel/footer.php');
+include($base_path . '/footer.php');
 ?>

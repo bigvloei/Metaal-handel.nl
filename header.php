@@ -3,7 +3,7 @@
 $base_path = $_SERVER['DOCUMENT_ROOT']; 
 $current_page = basename($_SERVER['PHP_SELF']);
 // Voeg deze regels bovenaan je header.php toe, samen met je andere variabelen
-$base_url = "/metaal-handel/"; // Pas dit aan als de mapstructuur wijzigt
+$base_url = "/"; // Pas dit aan als de mapstructuur wijzigt
 ?>
 <!DOCTYPE html>
 <html lang="nl">
