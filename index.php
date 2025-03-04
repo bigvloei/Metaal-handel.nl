@@ -1,6 +1,6 @@
 <?php
 // Pad naar private directory (één niveau omhoog vanaf publik_html)
-define('PRIVATE_PATH', dirname(__DIR__) . '/private');
+define('PRIVATE_PATH', dirname(__DIR__) . '/private_html');
 define('CONFIG_PATH', PRIVATE_PATH . '/config');
 define('INCLUDES_PATH', PRIVATE_PATH . '/includes');
 define('CLASSES_PATH', PRIVATE_PATH . '/classes');
