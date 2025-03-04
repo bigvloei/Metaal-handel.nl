@@ -1,0 +1,146 @@
+# .htaccess voor metaal-handel.nl
+# Geoptimaliseerd met SSL redirect, schone URLs, caching, compressie en beveiliging
+
+# PHP Instellingen
+<IfModule mod_php.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+    php_flag session.use_only_cookies on
+    php_flag session.use_trans_sid off
+    php_flag display_errors off
+</IfModule>
+
+# SSL Redirect - Forceert HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Basis URL herschrijvingen voor schone URLs
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Voorkom oneindige loops
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    
+    # Verwijder de .php extensie
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^([^/]+)/?$ $1.php [L]
+    
+    # Herschrijf standaard index bestanden
+    RewriteRule ^index\.php$ / [R=301,L]
+    
+    # Aangepaste pagina-definities
+    # Handelaar secties
+    RewriteRule ^handelaar/registreren/?$ handelaar-registreren.php [L]
+    RewriteRule ^handelaar/inloggen/?$ login.php [L]
+    RewriteRule ^handelaar/dashboard/?$ handelaar-dashboard.php [L]
+    RewriteRule ^handelaar/profiel/?$ handelaar-profiel.php [L]
+    
+    # Particulier secties
+    RewriteRule ^opdracht/plaatsen/?$ opdracht-plaatsen.php [L]
+    RewriteRule ^opdracht/overzicht/?$ opdrachten-overzicht.php [L]
+    RewriteRule ^opdracht/([0-9]+)/?$ opdracht-details.php?id=$1 [L]
+    
+    # Algemene pagina's
+    RewriteRule ^over-ons/?$ over-ons.php [L]
+    RewriteRule ^contact/?$ contact.php [L]
+    RewriteRule ^faq/?$ veelgestelde-vragen.php [L]
+    RewriteRule ^prijzen/?$ prijzen.php [L]
+    RewriteRule ^blog/?$ blog.php [L]
+    RewriteRule ^blog/([a-zA-Z0-9-]+)/?$ blog-artikel.php?slug=$1 [L]
+    
+    # Error pagina's
+    ErrorDocument 404 /404.php
+    ErrorDocument 500 /500.php
+</IfModule>
+
+# Browser caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Standaard cache
+    ExpiresDefault "access plus 2 days"
+    
+    # Favicon
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Afbeeldingen
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    
+    # CSS en JavaScript
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType text/javascript "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    
+    # Fonts
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType application/font-sfnt "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+</IfModule>
+
+# GZIP compressie
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    
+    # Oudere browsers
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</IfModule>
+
+# Beveiliging
+# Voorkom directory listing
+Options -Indexes
+
+# Bescherm tegen XSS aanvallen
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    # Content Security Policy - aanpassen naar je eigen behoeften
+    Header set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';"
+</IfModule>
+
+# Bescherm kritieke bestanden
+<FilesMatch "^(\.htaccess|\.htpasswd|\.git|\.env|config\.php|\.xml)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Bescherm tegen SQL-injecties in URLs
+RewriteCond %{QUERY_STRING} [^a-z0-9_\-=&\.\+\?\/\\]+ [NC]
+RewriteRule .* - [F]
+
+# Voorkom hotlinking van afbeeldingen (voeg je domein toe)
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https://(www\.)?(metaal-handel\.nl|google\.|facebook\.|twitter\.) [NC]
+    RewriteRule \.(jpg|jpeg|png|gif)$ - [F]
+</IfModule>
+
+# UTF-8 encoding
+AddDefaultCharset UTF-8

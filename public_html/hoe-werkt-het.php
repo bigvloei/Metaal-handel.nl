@@ -5,7 +5,7 @@ $base_path = $_SERVER['DOCUMENT_ROOT'];
 $base_url = "/metaalhandel/"; // Aangepast voor submap
 
 // Header includen
-include($base_path . '/metaalhandel/header.php');
+include($base_path . '/header.php');
 ?>
 
 <main class="main-content">
@@ -208,5 +208,5 @@ include($base_path . '/metaalhandel/header.php');
 
 <?php
 // Footer includen
-include($base_path . '/metaalhandel/footer.php');
+include($base_path . '/footer.php');
 ?>

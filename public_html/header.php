@@ -5,6 +5,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 // Root-level URL, geen submap meer
 $base_url = "/"; // Aangepast voor directe root-level toegang
 ?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -178,34 +179,34 @@ $base_url = "/"; // Aangepast voor directe root-level toegang
       
       <nav class="main-nav" aria-label="Hoofdnavigatie">
         <ul class="nav-list">
-          <li><a href="index.php" class="<?php echo $current_page == 'index.php' ? 'active' : ''; ?>">Home</a></li>
+          <li><a href="index.php" class="<?php echo $current_page == 'index' ? 'active' : ''; ?>">Home</a></li>
           <li class="dropdown">
-            <a href="particulieren.php" class="nav-link <?php echo $current_page == 'particulieren.php' ? 'active' : ''; ?>">Voor particulieren</a>
+            <a href="particulieren" class="nav-link <?php echo $current_page == 'particulieren' ? 'active' : ''; ?>">Voor particulieren</a>
             <div class="dropdown-content">
-              <a href="hoe-werkt-het.php">Hoe werkt het?</a>
-              <a href="opdracht-plaatsen.php">Opdracht plaatsen</a>
-              <a href="veelgestelde-vragen.php">Veelgestelde vragen</a>
+              <a href="hoe-werkt-het">Hoe werkt het?</a>
+              <a href="opdracht-plaatsen">Opdracht plaatsen</a>
+              <a href="veelgestelde-vragen">Veelgestelde vragen</a>
             </div>
           </li>
           <li class="dropdown">
-            <a href="handelaren.php" class="nav-link <?php echo $current_page == 'handelaren.php' ? 'active' : ''; ?>">Voor handelaren</a>
+            <a href="handelaren" class="nav-link <?php echo $current_page == 'handelaren' ? 'active' : ''; ?>">Voor handelaren</a>
             <div class="dropdown-content">
-              <a href="voordelen.php">Voordelen</a>
-              <a href="aanmelden.php">Aanmelden als handelaar</a>
-              <a href="dashboard.php">Dashboard</a>
+              <a href="voordelen">Voordelen</a>
+              <a href="aanmelden">Aanmelden als handelaar</a>
+              <a href="dashboard">Dashboard</a>
             </div>
           </li>
-          <li><a href="opdracht-plaatsen.php" class="<?php echo $current_page == 'opdracht-plaatsen.php' ? 'active' : ''; ?>">Opdracht plaatsen</a></li>
-          <li><a href="prijzen.php" class="<?php echo $current_page == 'prijzen.php' ? 'active' : ''; ?>">Dagprijzen</a></li>
-          <li><a href="contact.php" class="<?php echo $current_page == 'contact.php' ? 'active' : ''; ?>">Contact</a></li>
+          <li><a href="opdracht-plaatsen" class="<?php echo $current_page == 'opdracht-plaatsen' ? 'active' : ''; ?>">Opdracht plaatsen</a></li>
+          <li><a href="prijzen" class="<?php echo $current_page == 'prijzen' ? 'active' : ''; ?>">Dagprijzen</a></li>
+          <li><a href="contact" class="<?php echo $current_page == 'contact' ? 'active' : ''; ?>">Contact</a></li>
         </ul>
       </nav>
       
       <div class="contact-info">
-        <a href="opdracht-plaatsen.php" class="contact-btn">
+        <a href="opdracht-plaatsen" class="contact-btn">
           <i class="fas fa-plus-circle"></i> Opdracht plaatsen
         </a>
-        <a href="login.php" class="contact-btn btn-primary">
+        <a href="login" class="contact-btn btn-primary">
           <i class="fas fa-sign-in-alt"></i> Inloggen
         </a>
       </div>
@@ -230,9 +231,9 @@ $base_url = "/"; // Aangepast voor directe root-level toegang
         Voor particulieren <i class="fas fa-chevron-down"></i>
       </button>
       <div class="mobile-dropdown-content">
-        <a href="hoe-werkt-het.php">Hoe werkt het?</a>
-        <a href="opdracht-plaatsen.php">Opdracht plaatsen</a>
-        <a href="veelgestelde-vragen.php">Veelgestelde vragen</a>
+        <a href="hoe-werkt-het">Hoe werkt het?</a>
+        <a href="opdracht-plaatsen">Opdracht plaatsen</a>
+        <a href="veelgestelde-vragen">Veelgestelde vragen</a>
       </div>
     </li>
     
@@ -241,16 +242,16 @@ $base_url = "/"; // Aangepast voor directe root-level toegang
         Voor handelaren <i class="fas fa-chevron-down"></i>
       </button>
       <div class="mobile-dropdown-content">
-        <a href="voordelen.php">Voordelen</a>
-        <a href="aanmelden.php">Aanmelden als handelaar</a>
-        <a href="dashboard.php">Dashboard</a>
+        <a href="voordelen">Voordelen</a>
+        <a href="aanmelden">Aanmelden als handelaar</a>
+        <a href="dashboard">Dashboard</a>
       </div>
     </li>
     
-    <li><a href="opdracht-plaatsen.php">Opdracht plaatsen</a></li>
-    <li><a href="prijzen.php">Dagprijzen</a></li>
-    <li><a href="contact.php">Contact</a></li>
-    <li><a href="login.php">Inloggen</a></li>
+    <li><a href="opdracht-plaatsen">Opdracht plaatsen</a></li>
+    <li><a href="prijzen">Dagprijzen</a></li>
+    <li><a href="contact">Contact</a></li>
+    <li><a href="login">Inloggen</a></li>
   </ul>
 </nav>
 
