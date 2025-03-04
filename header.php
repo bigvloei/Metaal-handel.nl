@@ -27,7 +27,7 @@ $base_url = "/"; // Pas dit aan als de mapstructuur wijzigt
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   
 </head>
 <body>
